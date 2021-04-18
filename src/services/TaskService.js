@@ -12,11 +12,11 @@ export function createTask(content) {
 }
 
 export function getTasks() {
-    const ret = window.localStorage.getItem(process.env.LOCAL_STORAGE_KEY);
+    const ret = window.localStorage.getItem(process.env.VUE_APP_LOCAL_STORAGE_KEY);
     return ret ? JSON.parse(ret) : [];
 }
 
 export function saveTasks(tasks) {
     const payload = JSON.stringify(tasks);
-    window.localStorage.setItem(process.env.LOCAL_STORAGE_KEY, payload);
+    window.localStorage.setItem(process.env.VUE_APP_LOCAL_STORAGE_KEY, payload);
 }
