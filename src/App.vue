@@ -1,28 +1,61 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Topbar />
+    <div class="app--container">
+      <Welcome />
+      <TaskSection />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Topbar from './components/Topbar';
+import Welcome from './components/Welcome';
+import TaskSection from './components/TaskSection';
 
 export default {
-  name: 'App',
+  name: 'Todo',
   components: {
-    HelloWorld
+    Topbar,
+    Welcome,
+    TaskSection
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .app--container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .welcome {
+    display: none;
+    flex: 2;
+  }
+
+  .task--section {
+    flex: 1;
+  }
+
+  @media(min-width: 768px) {
+    .welcome {
+      display: block;
+      flex: 1;
+    }
+  }
+
+  @media(min-width: 1024px) {
+    .welcome {
+      flex: 2;
+    }
+  }
+  
 </style>
